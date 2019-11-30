@@ -1,5 +1,6 @@
+package logic;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
 import lombok.Getter;
 
 import java.io.File;
@@ -10,7 +11,7 @@ public class VolumeDB {
     static ObjectMapper mapper = new ObjectMapper();
 
     @Getter
-    private HashMap<String,RoundVolume> volumes;
+    private HashMap<String, RoundVolume> volumes;
 
 
     public VolumeDB() {

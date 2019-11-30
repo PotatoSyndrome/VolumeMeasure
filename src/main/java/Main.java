@@ -1,13 +1,15 @@
-public class Main /*extends Application */{
+import Interface.WoodWindow;
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Main extends Application {
 
     public static void main(String[] args) {
-//        launch(args);
-        YourWood y = new YourWood();
-        y.lengthFirstSortWood();
+        launch(args);
     }
 
-//    @Override
-//    public void start(Stage primaryStage) {
-//
-//    }
+    @Override
+    public void start(Stage primaryStage) {
+        new WoodWindow().show();
+    }
 }
