@@ -40,11 +40,16 @@ public class WoodWindow {
         layout.getChildren().addAll(addWood.getAll());
         layout.getChildren().addAll(totalValues.getAll());
         window.setScene(scene);
+
+        table.getDelete().setOnAction(event -> {
+            table.delete();
+            totalValues.renew();
+        });
     }
 
     public void show() {
-        redraw();
         window.show();
+        redraw();
     }
 
     private void redraw() {

@@ -24,6 +24,8 @@ public class WoodTable {
     private Button lengthSort;
     private Button diameterSort;
     @Getter
+    private Button delete;
+    @Getter
     private YourWood wood;
 
     WoodTable(YourWood wood) {
@@ -31,6 +33,7 @@ public class WoodTable {
         table = new TableView<>();
         lengthSort = new Button("Сортувати за довжиною");
         diameterSort = new Button("Сортувати за діаметром");
+        delete = new Button("Видалити");
         tableInit();
     }
 
@@ -38,23 +41,23 @@ public class WoodTable {
         table.setEditable(true);
         table.setPrefWidth(TABLEWIDTH);
         table.setPrefHeight(TABLEHEIGHT);
-        TableColumn<RoundVolume,Double> lengthCol = new TableColumn<RoundVolume, Double>(" Довжина");
+        TableColumn<RoundVolume,Double> lengthCol = new TableColumn<>(" Довжина");
         lengthCol.setPrefWidth(table.getPrefWidth() / 3);
         lengthCol.setResizable(false);
-        TableColumn<RoundVolume,Integer> diameterCol = new TableColumn<RoundVolume,Integer>("Діаметр");
+        TableColumn<RoundVolume,Integer> diameterCol = new TableColumn<>("Діаметр");
         diameterCol.setPrefWidth(table.getPrefWidth() / 3);
         diameterCol.setResizable(false);
-        TableColumn<RoundVolume,Double> volumeCol = new TableColumn<RoundVolume,Double>("Об'єм");
+        TableColumn<RoundVolume,Double> volumeCol = new TableColumn<>("Об'єм");
         volumeCol.setPrefWidth(table.getPrefWidth() / 3);
         volumeCol.setResizable(false);
         lengthCol.setCellValueFactory(
-                new PropertyValueFactory<RoundVolume,Double>("length")
+                new PropertyValueFactory<>("length")
         );
         diameterCol.setCellValueFactory(
-                new PropertyValueFactory<RoundVolume,Integer>("diameter")
+                new PropertyValueFactory<>("diameter")
         );
         volumeCol.setCellValueFactory(
-                new PropertyValueFactory<RoundVolume,Double>("volume")
+                new PropertyValueFactory<>("volume")
         );
         table.getColumns().addAll(lengthCol, diameterCol,volumeCol);
 
@@ -68,6 +71,7 @@ public class WoodTable {
             table.setItems(FXCollections.observableArrayList(wood.getWood()));
         });
         lengthSort.setPrefHeight(HEIGHT);
+        delete.setPrefHeight(HEIGHT);
         table.setItems(FXCollections.observableArrayList(wood.getWood()));
     }
 
@@ -76,7 +80,16 @@ public class WoodTable {
         nodeArrayList.add(table);
         nodeArrayList.add(diameterSort);
         nodeArrayList.add(lengthSort);
+        nodeArrayList.add(delete);
         return nodeArrayList;
+    }
+
+    public void delete() {
+        ObservableList<RoundVolume> list = table.getSelectionModel().getSelectedItems();
+        for (RoundVolume rv: list) {
+            wood.getWood().remove(rv);
+        }
+        table.setItems(FXCollections.observableArrayList(wood.getWood()));
     }
 
     public void setItems(ObservableList<RoundVolume> roundVolumes) {
@@ -86,12 +99,12 @@ public class WoodTable {
     public void redraw(double x, double y) {
         table.setLayoutX(x);
         table.setLayoutY(y);
-
         lengthSort.setLayoutX(x);
         diameterSort.setLayoutX(x);
-
         lengthSort.setLayoutY(y + table.getPrefHeight() + DIFFERENCE);
         diameterSort.setLayoutY(lengthSort.getLayoutY() + lengthSort.getPrefHeight() + DIFFERENCE);
+        delete.setLayoutX(x + lengthSort.getWidth() + DIFFERENCE);
+        delete.setLayoutY(lengthSort.getLayoutY());
     }
 
     public double getX() {

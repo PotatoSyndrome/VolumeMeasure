@@ -9,8 +9,8 @@ import java.util.ArrayList;
 
 public class WoodTotalValues {
 
-    private static final String VOLUME = "Об'єм:";
-    private static final String PRICE = "Ціна:";
+    private static final String VOLUME = "Об'єм: ";
+    private static final String PRICE = "Ціна: ";
     private static final double DIFFERENCE = 20;
     private static final double HEIGHT = 30;
 
@@ -25,7 +25,7 @@ public class WoodTotalValues {
     WoodTotalValues(WoodTable table) {
         this.table = table;
 
-        totalVolume = new Label(VOLUME + 0);
+        totalVolume = new Label(VOLUME + 0 + " M³");
         totalVolume.setPrefHeight(HEIGHT);
         addPrice = new Label("Введіть ціну");
         addPrice.setPrefHeight(HEIGHT);
