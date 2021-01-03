@@ -41,13 +41,13 @@ public class WoodTable {
         table.setEditable(true);
         table.setPrefWidth(TABLEWIDTH);
         table.setPrefHeight(TABLEHEIGHT);
-        TableColumn<RoundVolume,Double> lengthCol = new TableColumn<>(" Довжина");
+        TableColumn<RoundVolume,Double> lengthCol = new TableColumn<>(" Довжина/м");
         lengthCol.setPrefWidth(table.getPrefWidth() / 3);
         lengthCol.setResizable(false);
-        TableColumn<RoundVolume,Integer> diameterCol = new TableColumn<>("Діаметр");
+        TableColumn<RoundVolume,Integer> diameterCol = new TableColumn<>("Діаметр/см");
         diameterCol.setPrefWidth(table.getPrefWidth() / 3);
         diameterCol.setResizable(false);
-        TableColumn<RoundVolume,Double> volumeCol = new TableColumn<>("Об'єм");
+        TableColumn<RoundVolume,Double> volumeCol = new TableColumn<>("Об'єм/м^3");
         volumeCol.setPrefWidth(table.getPrefWidth() / 3);
         volumeCol.setResizable(false);
         lengthCol.setCellValueFactory(
