@@ -8,6 +8,9 @@ import org.junit.jupiter.api.Assertions;
 
 import java.util.Random;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 public class YourWoodTest {
 
     @Test
@@ -65,6 +68,11 @@ public class YourWoodTest {
                 }
             }
         }
+    }
+
+    @Test
+    public void falseTest() {
+        fail();
     }
 
 }
