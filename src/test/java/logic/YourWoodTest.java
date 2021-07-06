@@ -3,6 +3,7 @@ package logic;
 import logic.RoundVolume;
 import logic.VolumeDB;
 import logic.YourWood;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
@@ -70,6 +71,7 @@ public class YourWoodTest {
     }
 
     @Test
+    @Ignore
     public void falseTest() {
         fail();
     }
