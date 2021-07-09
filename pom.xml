@@ -46,6 +46,7 @@
                 <artifactId>randoop-maven-plugin</artifactId>
                 <version>1.0</version>
                 <configuration>
+                    <strategy>WHOLE_PLUS_PROTECTED</strategy>
                     <junitPackageName>logic</junitPackageName>
                     <testPackage>logic</testPackage>
                     <outputLimit>500</outputLimit>
@@ -56,7 +57,7 @@
                     <noErrorRevealingTests>true</noErrorRevealingTests>
                     <junitOutputDir>${project.basedir}/src/test/regression/plugin</junitOutputDir>
                     <timeLimit>180</timeLimit>
-                    <testAddDependency>true</testAddDependency>
+                    <testAddDependencies>true</testAddDependencies>
                 </configuration>
             </plugin>
         </plugins>
