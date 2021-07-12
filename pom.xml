@@ -38,11 +38,6 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>14</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -54,15 +49,12 @@
                 <version>1.0</version>
                 <configuration>
                     <strategy>WHOLE_PLUS_PROTECTED</strategy>
-                    <junitPackageName>logic</junitPackageName>
-                    <testPackage>logic</testPackage>
-                    <outputLimit>500</outputLimit>
+                    <outputLimit>1500</outputLimit>
                     <attemptedLimit>1000000</attemptedLimit>
                     <npeOnNullInput>EXPECTED</npeOnNullInput>
                     <npeOnNonNullInput>ERROR</npeOnNonNullInput>
                     <forbidNull>false</forbidNull>
                     <noErrorRevealingTests>true</noErrorRevealingTests>
-                    <junitOutputDir>${project.basedir}/src/test/regression/plugin</junitOutputDir>
                     <timeLimit>180</timeLimit>
                     <testAddDependencies>true</testAddDependencies>
                 </configuration>
