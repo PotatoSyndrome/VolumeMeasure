@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
+        <test.folder>src/test/java</test.folder>
     </properties>
 
     <dependencies>
@@ -37,9 +38,15 @@
             <version>RELEASE</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>14</version>
+        </dependency>
     </dependencies>
 
     <build>
+        <testSourceDirectory>${test.folder}</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>com.epam</groupId>
